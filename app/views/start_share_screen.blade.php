@@ -1,15 +1,18 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Screenleap API Sample</title>
+    <title>Screen share</title>
     <script type="text/javascript" src="http://api.screenleap.com/js/screenleap.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-
-<h1>Screenleap API Sample Code for <b>mijat</b></h1>
-
-<p>This page demonstrates how to launch a screen share through the Screenleap API, using the Native App as the presenter app.</p>
+<div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<h1>Pozdrav Kepke</h1>
+<div class="well">
+<p>Ovo je demo stranica sa koje se pokrece share screen, kada se ucita stranica share screen ce se automatski pokrenuti</p>
 
 <?php
     // Configure the request.
@@ -45,28 +48,24 @@
 <!-- The following 3 divs display conditionally to show the viewer information about the screen share. They are managed by the screenleap callback functions below. -->
 <p id="screenIsLoading">Your screen share is loading...</p>
 <p id="screenIsShared" style="display:none;">
-    Click to view the screen share:
-  <!--   <a href="<?php echo $json['viewerUrl'] ?>" target="_blank">
-        <?php //echo $json['viewerUrl'] ?>
-        Link to my share screen
-    </a> -->
+    Ovaj link treba da podelis sa drugima da bi mogli da prate tvoj ekran :
+
 
     <a href="{{URL::to('broadcast?session='.Crypt::encrypt($json['viewerUrl']))}}" target="_blank">
         <?php //echo $json['viewerUrl'] ?>
-        Link to my share screen
+        LINK
     </a>
 
 
 
-    {{Form::open(array('route' => array('broadcast' ),'method'=>'POST'))}}
-        <input type="hidden" name="iframe" value="{{$json['viewerUrl']}}" />
-        <button type="submit" class="btn btn-primary">Submit</button>
-    {{Form::close()}}
 
     <div id="viewerMessages"></div>
 </p>
 <p id="screenShareEnded" style="display:none;"><b>Your screen share has ended</b></p>
-
+            </div>
+        </div>
+    </div>
+</div>
 <!-- These scripts respond to share functions to show feedback to the user. -->
 <script type="text/javascript">
 
