@@ -1,0 +1,1 @@
+If you wanna start share scree click <a href="{{URL::to('start')}}">here</a>
